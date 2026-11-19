@@ -356,10 +356,12 @@ Perf: only while the camera is underwater. Caustics are 16 SpotLights; shafts ar
 
 Perf: the biggest memory user (terrain + decor instances). `BudgetMs` caps generation time per frame; `ViewChunks` loads (2n+1)² chunks.
 
+Any `Seafloor.*` change applies live: the seafloor around the camera is unloaded and regenerated, spread over the next frames by `BudgetMs`. The same seed always rebuilds the same chunks. In the in-game panel these settings are in the **Underwater** tab (sections *Seafloor generation* and *Sea plants and corals*), and their sliders apply when released.
+
 | Path | Default | Range | Side | Applies | Description |
 | --- | --- | --- | --- | --- | --- |
 | `Seafloor.Enabled` | true | | client | live | Procedural terrain and decor under the sea |
-| `Seafloor.Seed` | 20261117 | 0 – 99999999 | client | restart | Same seed = same chunks |
+| `Seafloor.Seed` | 20261117 | 0 – 99999999 | client | live | Same seed = same chunks; a new seed regenerates the seafloor |
 | `Seafloor.ChunkSize` | 128 | 64 – 512 | client | live | Studs, multiple of 4 |
 | `Seafloor.ViewChunks` | 2 | 1 – 5 | client | live | Chunks loaded around the camera in each direction |
 | `Seafloor.UnloadMargin` | 1 | | client | live | Extra ring kept before unloading |
