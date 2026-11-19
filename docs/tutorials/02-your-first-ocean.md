@@ -26,7 +26,7 @@ The Overview tab now lists every required item as **OK**.
 
 The sea appears around your character. The ocean surface sits at `Y = 0` by default (`General.SeaLevel`).
 
-In Studio, the **Ocean** button at the top-left of the game view opens the live control panel (F2 also works). Its sliders change the sea while you play. Wave settings apply for everyone and cross-fade; visual settings apply to you only. Nothing you change in the panel is saved. Copy the values you like into **Configure**.
+In Studio, the **Ocean** button at the top-left of the game view opens the live control panel (F2 also works). On phones and tablets the button sits at the top-right. Its sliders change the sea while you play. Wave settings apply for everyone and cross-fade; visual settings apply to you only. Nothing you change in the panel is saved. Copy the values you like into **Configure**.
 
 ## 3. Configure
 
