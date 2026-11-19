@@ -93,3 +93,12 @@ local depth = ocean:GetSurfaceData(position).Depth
 
 - Tested in Roblox Studio on Windows (play test, desktop). Every code sample in these documents was run in a Studio play session on 2026-11-19.
 - **Not yet tested on a physical phone.** The mobile panel was laid out and checked at phone resolutions in Studio, and the device benchmark exists, but no results from a real iPhone have been collected yet. See the [iPhone 14 benchmark](docs/performance/iphone-14-benchmark.md) page.
+
+## Contributors
+
+- **The repository owner**: the engine, the demo place, design and direction.
+- **[Claude](https://github.com/claude)** (Anthropic), working in Claude Code:
+  - the circular ocean mesh, the underwater rendering and the performance work;
+  - the public `OceanEngine` API and the Studio plugin;
+  - the mobile control panel and the device benchmark;
+  - this documentation and the platform-limitations report.
