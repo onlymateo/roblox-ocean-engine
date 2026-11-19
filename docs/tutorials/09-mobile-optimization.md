@@ -18,7 +18,7 @@ Highest cost first, from Studio measurements and from how each feature works:
 | Seafloor | Terrain writes while streaming and thousands of decor instances; the biggest memory user | `Seafloor.ViewChunks` 1, or `Seafloor.Enabled = false` if your game has its own floor |
 | Wave model | `Gerstner.WaveCount` waves evaluated per vertex | 12 instead of 16 |
 | Transparency | Fill rate: overlapping transparent pixels are shaded several times | Keep `Look.TransparencyMode = "NearOnly"` |
-| Caustics | 16 SpotLights under the surface while underwater | `Underwater.Caustics = false` |
+| Caustics | 16 SpotLights under the surface while underwater | `Underwater.Caustics = false`, or `Underwater.Lights = false` for every underwater light |
 | Light shafts | One textured Beam per shaft while underwater | `Underwater.ShaftCount` 8–12 |
 | Rain | `Weather.RainRate` 1 400 particles/s at full storm | 400–600 |
 | Spray | Particle emitters (none on Low) | `Spray.Rate` 15 |

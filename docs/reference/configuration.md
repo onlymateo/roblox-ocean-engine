@@ -322,7 +322,8 @@ Perf: only while the camera is underwater. Caustics are 16 SpotLights; shafts ar
 
 | Path | Default | Range | Side | Applies | Description |
 | --- | --- | --- | --- | --- | --- |
-| `Underwater.Enabled` | true | | client | live | |
+| `Underwater.Enabled` | true | | client | live | Every underwater effect |
+| `Underwater.Lights` | true | | client | live | Master switch for every underwater light effect: shafts, caustic SpotLights, sparkles, glints, sun rays (fog and colour stay) |
 | `Underwater.Extinction` | (0.03, 0.0085, 0.0052) | | client | live | Absorption per stud for R, G, B |
 | `Underwater.FogColor` | RGB(58, 140, 142) | | client | live | Light just under the surface |
 | `Underwater.AbyssColor` | RGB(4, 16, 34) | | client | live | Where no light reaches |
@@ -361,6 +362,7 @@ Any `Seafloor.*` change applies live: the seafloor around the camera is unloaded
 | Path | Default | Range | Side | Applies | Description |
 | --- | --- | --- | --- | --- | --- |
 | `Seafloor.Enabled` | true | | client | live | Procedural terrain and decor under the sea |
+| `Seafloor.Plants` | true | | client | live | Sea plants (categories of group `Vegetation`: kelp, seagrass). Off removes them; rocks, corals and props stay |
 | `Seafloor.Seed` | 20261117 | 0 – 99999999 | client | live | Same seed = same chunks; a new seed regenerates the seafloor |
 | `Seafloor.ChunkSize` | 128 | 64 – 512 | client | live | Studs, multiple of 4 |
 | `Seafloor.ViewChunks` | 2 | 1 – 5 | client | live | Chunks loaded around the camera in each direction |
@@ -398,7 +400,8 @@ Perf: rain particles (`RainRate` at full storm) and post effects.
 
 | Path | Default | Range | Side | Applies | Description |
 | --- | --- | --- | --- | --- | --- |
-| `Demo.SwimEnabled` | true | | client | live | Swimming (`OceanSwim`) |
+| `Demo.SwimEnabled` | true | | client | live | Swimming (`OceanSwim`). Off: characters sink and walk on the seafloor |
+| `Demo.DiveEnabled` | true | | client | live | Diving. Off: swimmers stay at the surface (no dive keys or Dive / Up buttons, no diving by looking down) |
 | `Demo.SwimSpeed` | 17 | 4 – 40 | client | live | Horizontal studs/s |
 | `Demo.SwimSprint` | 1.6 | 1 – 3 | client | live | Multiplier while holding LeftShift |
 | `Demo.SwimVerticalSpeed` | 13 | 2 – 30 | client | live | Space rises, LeftControl / C dives |

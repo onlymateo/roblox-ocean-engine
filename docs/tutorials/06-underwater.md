@@ -18,6 +18,7 @@ All of it is client-side and costs nothing while the camera is above water.
 | Path | Default | Range | Role | Cost |
 | --- | --- | --- | --- | --- |
 | `Underwater.Enabled` | true | | Everything on this page | Only while underwater |
+| `Underwater.Lights` | true | | All the light effects below at once: shafts, caustics, sparkles, glints, sun rays | Off saves the SpotLights and beams |
 | `Underwater.Extinction` | (0.03, 0.0085, 0.0052) | per stud | Absorption per colour channel (R, G, B) | — |
 | `Underwater.FogColor` | RGB(58, 140, 142) | | Light just under the surface | — |
 | `Underwater.AbyssColor` | RGB(4, 16, 34) | | What the fog tends toward where no light reaches | — |
@@ -67,13 +68,27 @@ end)
 
 | Path | Default | Role |
 | --- | --- | --- |
-| `Demo.SwimEnabled` | true | Turns swimming on or off |
+| `Demo.SwimEnabled` | true | Turns swimming on or off. Off: characters sink and walk on the seafloor |
+| `Demo.DiveEnabled` | true | Off: swimmers stay at the surface (no dive keys or buttons) |
 | `Demo.SwimSpeed` | 17 | Horizontal speed (studs/s) |
 | `Demo.SwimVerticalSpeed` | 13 | Space rises; LeftControl or C dives. Touch: Dive / Up buttons. Gamepad: L2 / R2 |
 | `Demo.SwimMaxDepth` | 140 | How deep a character can dive |
 | `Demo.SwimDepthFactor` | 1.15 | Swim only where the water is deeper than this × the standing height; shallower water is waded |
 | `Demo.WadeSlowdown` | 0.45 | Slow-down while wading |
 
-To remove swimming, delete `OceanSwim`.
+To remove swimming completely, delete `OceanSwim`.
+
+## Turning features off
+
+The in-game panel's **Underwater** tab starts with a *Features on / off* section, with switches for the seafloor, sea plants, underwater lights, swimming and diving. They are per-player settings, so a game can also set them from code, for one player:
+
+```lua
+-- LocalScript
+ocean:Set("Seafloor.Plants", false)    -- no kelp or seagrass
+ocean:Set("Underwater.Lights", false)  -- no shafts, caustics or sparkles
+ocean:Set("Demo.DiveEnabled", false)   -- swim at the surface only
+```
+
+or for everyone, by default, in `Config.Project` (`["Demo.DiveEnabled"] = false`). The rest of the tab fine-tunes the effects, the seafloor generation and the plants.
 
 Next: [7. Buoyancy](07-buoyancy.md).
