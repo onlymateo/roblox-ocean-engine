@@ -17,7 +17,7 @@ This repository holds the **documentation only**: tutorials, the API and configu
 
 ## Quick start
 
-1. Install the Studio plugin and insert the engine package ([tutorial 1](docs/tutorials/01-install-the-plugin.md)).
+1. Install the Studio plugin. It contains the engine, so there is nothing else to insert ([tutorial 1](docs/tutorials/01-install-the-plugin.md)).
 2. Click **Ocean Engine › Ocean › Create Ocean**, then press Play ([tutorial 2](docs/tutorials/02-your-first-ocean.md)).
 
 Create Ocean adds two start scripts, shown below. The server half owns the settings and the buoyancy. The client half draws the ocean.
@@ -53,7 +53,7 @@ return {
 }
 ```
 
-Everything else goes through one public module, `Ocean.OceanEngine` ([API reference](docs/reference/api.md)):
+Everything else goes through one public module, `Ocean.OceanEngine` ([reference](docs/reference.md#api)):
 
 ```lua
 local ocean = OceanEngine.Running()          -- the engine started by OceanServer / OceanClientBoot
@@ -65,7 +65,7 @@ local depth = ocean:GetSurfaceData(position).Depth
 
 | Tutorials | |
 | --- | --- |
-| [1. Install the plugin](docs/tutorials/01-install-the-plugin.md) | Plugin file, engine package, Mesh / Image APIs setting |
+| [1. Install the plugin](docs/tutorials/01-install-the-plugin.md) | Plugin (engine included), Mesh / Image APIs setting, optional packages |
 | [2. Your first ocean](docs/tutorials/02-your-first-ocean.md) | Create, configure and preview an ocean in five minutes |
 | [3. Add the ocean to an existing game](docs/tutorials/03-existing-game.md) | Terrain, spawn points, your own scripts, removing the ocean |
 | [4. Waves and quality](docs/tutorials/04-waves-and-quality.md) | Presets, wind, wavelength, speed, zones, quality tiers |
@@ -76,12 +76,9 @@ local depth = ocean:GetSurfaceData(position).Depth
 | [9. Mobile optimization](docs/tutorials/09-mobile-optimization.md) | Quality tiers, costly features, on-device benchmark |
 | [10. Troubleshooting](docs/tutorials/10-troubleshooting.md) | Symptoms, causes and fixes |
 
-| Reference and reports | |
+| Reference | |
 | --- | --- |
-| [API](docs/reference/api.md) | Every public function, option and signal |
-| [Configuration](docs/reference/configuration.md) | Every setting: default, range, server or client, when it applies, performance |
-| [iPhone 14 benchmark](docs/performance/iphone-14-benchmark.md) | Procedure, scenarios, metrics, status of device testing |
-| [Roblox water-simulation limitations](docs/technical/roblox-water-simulation-limitations.md) | What the platform exposes for ocean rendering and physics, with sources |
+| [Reference](docs/reference.md) | API, main settings, performance on the development PC, Roblox limitations |
 
 ## Requirements
 
@@ -92,7 +89,7 @@ local depth = ocean:GetSurfaceData(position).Depth
 ## Status
 
 - Tested in Roblox Studio on Windows (play test, desktop). Every code sample in these documents was run in a Studio play session on 2026-11-19.
-- **Not yet tested on a physical phone.** The mobile panel was laid out and checked at phone resolutions in Studio, and the device benchmark exists, but no results from a real iPhone have been collected yet. See the [iPhone 14 benchmark](docs/performance/iphone-14-benchmark.md) page.
+- **Not yet tested on a physical phone.** The mobile panel was laid out and checked at phone resolutions in Studio, and the device benchmark exists, but no results from a real iPhone have been collected yet. See the [reference](docs/reference.md#performance-on-the-development-pc).
 
 ## Contributors
 

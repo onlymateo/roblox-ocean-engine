@@ -87,7 +87,7 @@ For each scenario it reports:
 
 The header records the device's viewport, orientation, quality, place version and loading times.
 
-GPU time and CPU or GPU utilisation are reported as unavailable where Roblox does not expose them on the device. The [iPhone 14 benchmark](../performance/iphone-14-benchmark.md) page describes the full procedure.
+GPU time and CPU or GPU utilisation are reported as unavailable where Roblox does not expose them on the device. See the [reference](../reference.md#performance-on-the-development-pc) for the PC measurements.
 
 Turn `Debug.Panel` off again before release, unless you want players to have it.
 

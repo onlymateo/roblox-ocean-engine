@@ -1,6 +1,6 @@
 # 2. Your first ocean
 
-Prerequisite: the plugin is installed and the engine package is in the place ([tutorial 1](01-install-the-plugin.md)).
+Prerequisite: the plugin is installed ([tutorial 1](01-install-the-plugin.md)). It contains the engine.
 
 ## 1. Create the ocean
 
@@ -55,7 +55,7 @@ return {
 }
 ```
 
-Any setting from the [configuration reference](../reference/configuration.md) can go in `Overrides`, not only the ones the plugin shows.
+Any setting from the [reference](../reference.md#settings) can go in `Overrides`, not only the ones the plugin shows.
 
 ## 4. Preview without playing
 

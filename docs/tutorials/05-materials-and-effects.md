@@ -6,7 +6,7 @@ Every setting on this page is a **client** setting:
 - Set on the server at runtime, it applies to everyone.
 - Set on a client, it applies to that player only.
 
-All of them apply live. The full list, with ranges, is in the [configuration reference](../reference/configuration.md).
+All of them apply live. The full list, with ranges, is in the [reference](../reference.md#settings).
 
 ## Water colour
 

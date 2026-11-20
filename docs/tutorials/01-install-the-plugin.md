@@ -1,26 +1,26 @@
 # 1. Install the plugin
 
-The ocean comes in two files:
+The Studio plugin (toolbar **Ocean Engine**) **contains the engine**: modules, textures, seafloor assets and start scripts. Installing the plugin is all a game needs, because **Create Ocean** installs the engine from the plugin itself.
 
-| File | What it is | Where it goes |
-| --- | --- | --- |
-| `OceanEnginePlugin.rbxmx` | The Studio plugin (toolbar **Ocean Engine**) | Your local Plugins folder |
-| `OceanEnginePackage.rbxm` | The engine: modules, textures, seafloor assets, start scripts | Inserted once into each place that uses the ocean |
+The plugin file is not published in this repository. Install it from Roblox (Toolbox or Creator Store) if it has been published there, or as a local file from the author.
 
-Neither file is published in this repository. Get them from the author, or make the package yourself from a place that already has the ocean (step 4).
+## 1. Install the plugin
 
-## 1. Install the plugin file
+**From Roblox** (Toolbox › Inventory, or the Creator Store page): click **Install**. The plugin appears in the **Plugins** tab.
+
+**From a file** (`OceanEnginePlugin.rbxm` or `.rbxmx`):
 
 1. In Studio, open the **Plugins** tab and click **Plugins Folder**. This opens the local plugins folder:
    - Windows: `%LOCALAPPDATA%\Roblox\Plugins`
    - macOS: `~/Documents/Roblox/Plugins`
-2. Copy `OceanEnginePlugin.rbxmx` into that folder.
-3. Restart Studio. The **Ocean Engine** toolbar appears in the Plugins tab, with an **Ocean** button.
-4. Check the Output window for:
+2. Copy the file into that folder. Keep only one version of the plugin there.
+3. Restart Studio.
 
-   ```
-   [Ocean Engine plugin] loaded v1.0.0
-   ```
+Either way, the **Ocean Engine** toolbar appears in the Plugins tab, with an **Ocean** button. Check the Output window for:
+
+```
+[Ocean Engine plugin] loaded v1.1.0
+```
 
 The **Ocean** button opens a docked panel with three tabs:
 
@@ -32,15 +32,9 @@ The **Ocean** button opens a docked panel with three tabs:
 
 Every plugin action is recorded in Studio's undo history, so Ctrl+Z undoes it.
 
-## 2. Insert the engine package
+In a place without the ocean, the Overview tab says *"The engine (v2.0.0) is bundled with this plugin: click Create Ocean to install it."* Continue with [tutorial 2](02-your-first-ocean.md).
 
-Drag `OceanEnginePackage.rbxm` into the Studio window, or right-click `ServerStorage` and choose **Insert from File…**. A folder named `OceanEnginePackage` appears.
-
-Open **Ocean Engine › Ocean**. The Overview tab now says *"Engine package found at ServerStorage.OceanEnginePackage: click Create Ocean to install it."*
-
-The package can live in `ServerStorage`, `Workspace`, `ReplicatedStorage` or `Lighting`. The plugin looks in all four. You can delete it after installation.
-
-## 3. Enable the Mesh / Image APIs
+## 2. Enable the Mesh / Image APIs
 
 The ocean surface is an `EditableMesh`. Roblox documents that *"using EditableMesh fails by default in published games"* until the experience enables the **Mesh / Image APIs** setting ([EditableMesh reference](https://create.roblox.com/docs/reference/engine/classes/EditableMesh)).
 
@@ -49,12 +43,11 @@ The ocean surface is an `EditableMesh`. Roblox documents that *"using EditableMe
 
 Roblox requires the experience owner to be 13+ and ID verified to turn it on. For a group game, that is the group owner ([Experience settings](https://create.roblox.com/docs/studio/experience-settings)). Studio play tests work without it. If you skip this step, a published game shows no ocean surface.
 
-## 4. Make a package from an existing place
+## 3. Optional: an engine package
 
-In a place that already has the ocean, open **Tools › Export package**.
+A package (`OceanEnginePackage`) is only needed to install an engine **other than the one bundled with the plugin**, for example the engine of another place you modified.
 
-The plugin copies the engine to `ServerStorage.OceanEnginePackage`. It also adds generic start scripts and copies `OceanSwim` / `OceanBoatDriver` if the place has them. Studio then asks where to save `OceanEnginePackage.rbxm`. If the dialog does not open, right-click the folder and choose **Save to File…**.
-
-The package never contains the source place's `Config.Project`, remotes or runtime attributes. Each game keeps its own configuration.
+- **Make one:** in a place that has the ocean, open **Tools › Export package**. The plugin copies the engine to `ServerStorage.OceanEnginePackage`, with generic start scripts and `OceanSwim` / `OceanBoatDriver` if the place has them. Studio then asks where to save `OceanEnginePackage.rbxm`; if the dialog does not open, right-click the folder and choose **Save to File…**. The package never contains the source place's `Config.Project`, remotes or runtime attributes.
+- **Use one:** drag the `.rbxm` into Studio, or right-click `ServerStorage` › **Insert from File…**. A package in the place (`ServerStorage`, `Workspace`, `ReplicatedStorage` or `Lighting`) takes priority over the bundled engine when you click **Create Ocean**. You can delete it after installation.
 
 Next: [2. Your first ocean](02-your-first-ocean.md).

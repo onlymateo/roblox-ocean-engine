@@ -7,7 +7,8 @@ Start with **Ocean Engine › Ocean › Overview › Refresh**. It lists missing
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | No **Ocean Engine** toolbar | The plugin file is not in the local Plugins folder, or Studio was not restarted | [Tutorial 1](01-install-the-plugin.md); look for `[Ocean Engine plugin] loaded v1.0.0` in Output |
-| *"No engine to install"* when clicking Create Ocean | No `OceanEnginePackage` in the place | Insert `OceanEnginePackage.rbxm` first |
+| *"No engine to install"* when clicking Create Ocean | An old plugin version without the bundled engine (before v1.1.0), and no `OceanEnginePackage` in the place | Update the plugin, or insert `OceanEnginePackage.rbxm` |
+| Two **Ocean Engine** toolbars | Two versions of the plugin installed (for example a local file and the Toolbox version) | Keep one: delete the other file from the Plugins folder, or uninstall it in the Plugins tab |
 | Ocean visible in Studio but **missing in the published game** | Mesh / Image APIs not allowed for the experience | Experience Settings › Security › **Allow Mesh / Image APIs** ([tutorial 1](01-install-the-plugin.md#3-enable-the-mesh--image-apis)) |
 | `Config.Project has invalid values: ...` | A value outside its range, or a typo in a path | Fix the value, or use **Configure › default** on that row |
 | `[Ocean.Config] Config.Project failed to load` | Syntax error in `Config.Project` | Open the module and fix the error shown in Output |
@@ -17,7 +18,7 @@ Start with **Ocean Engine › Ocean › Overview › Refresh**. It lists missing
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | A value changed in `Config` during Play has no effect | Modules are already loaded | Stop, edit `Config.Project`, run again. At runtime use `ocean:Set` |
-| `[Ocean.Settings] rejected Wind.Speed: 999 > max 40` | Out-of-range value | Use the range from the [configuration reference](../reference/configuration.md). `ocean:Set` returns `false, err` |
+| `[Ocean.Settings] rejected Wind.Speed: 999 > max 40` | Out-of-range value | Use the range from the [reference](../reference.md#settings). `ocean:Set` returns `false, err` |
 | *"'Wind.Speed' was set on a client: only this player's picture changes"* | A wave setting was set from a LocalScript | Set wave settings on the server ([tutorial 8](08-client-and-server.md)) |
 | The panel says *"Wave settings are controlled by the server"* | `RemoteAccess` does not allow you in a live game | Expected for players. For the owner, use `RemoteAccess = "Creator"` |
 | A preset change ignores one of my `Config.Project` values | It doesn't: `Config.Project` overrides sit above presets. A runtime `ocean:Set` on the server can still replace them | Check for runtime `Set` calls; `ocean:Get(path)` shows the value in effect |
