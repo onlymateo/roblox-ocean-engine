@@ -69,6 +69,33 @@ Roblox does not sort the triangles inside one transparent mesh. In big waves, a 
 | `Effects.ShoreImpact.Enabled` | true | Spray when crests hit cliffs, rocks and docks | Probes per frame (`ProbesPerFrame` 90) |
 | `Effects.Budget.MaxMs` | 2 ms | Per-frame time budget shared by the effects | — |
 
+## Beach waves
+
+`Extensions.Surf` makes the waves break on sloping beaches. At startup it builds a map around each island (distance to the shore, depth, shore direction) from the seafloor's own floor function; it takes about 0.1 s and runs behind the loading screen.
+
+Near the shore, waves:
+
+- face the beach and travel at shallow-water speed, so they get shorter as the water shallows;
+- grow (Green's law) and break when taller than `BreakIndex` × depth;
+- lean forward before breaking, and the break peels along the beach;
+- turn into whitewater that runs up the sand and drains back, with a white line at the water's edge;
+- glow turquoise in shallow water, with spray where the lip breaks.
+
+Cliffs (`MaxSlope`) get no surf; crests hitting them use `Effects.ShoreImpact`.
+
+| Path | Default | Role |
+| --- | --- | --- |
+| `Surf.Enabled` | true | Beach waves |
+| `Surf.Period` / `Surf.Height` | 4.5 s / 2.2 studs | Time between breakers / their height where the surf zone starts |
+| `Surf.MaxDistance` | 150 | Width of the surf zone (studs from the shore) |
+| `Surf.BreakIndex` | 0.78 | Breaks when height > this × depth |
+| `Surf.Steepness`, `Surf.PeelLength` | 0.9, 240 | Forward lean; studs along the shore per phase cycle (how the break peels) |
+| `Surf.SwashHeight`, `Surf.EdgeFoam`, `Surf.FoamGain` | 0.7, 0.85, 1.2 | Run-up on the sand, foam line, whitewater |
+| `Surf.ShallowColor`, `Surf.ShallowDepth`, `Surf.ShallowStrength` | RGB(64, 210, 220), 14, 0.75 | Turquoise shallow water |
+| `Surf.Spray` | true | Spray on breaking crests |
+
+The surf is visual and client-side, like boat wakes: swimmers ride it, but floating objects and the server physics use the open-sea waves only. A height field cannot fold over, so the curling lip of a real breaker is suggested by the steep front, whitewater and spray. Cost measured in Studio: about +1 ms per frame with the camera at the beach.
+
 ## Lighting
 
 The engine drives `Lighting` from `Config.Lighting` merged with the preset. The Atmosphere, Bloom, SunRays and ColorCorrection effects tween over `Lighting.Transition` (6 s) when the preset changes, and the original values are restored when the ocean stops.

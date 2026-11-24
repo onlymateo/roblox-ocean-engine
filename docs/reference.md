@@ -60,6 +60,7 @@ Everything applies live, with three exceptions:
 | `Seafloor.ViewChunks` | 2 | 1 – 5 | (2n+1)² chunks around the camera; the biggest memory user |
 | `Demo.SwimEnabled` / `Demo.DiveEnabled` | on | | Swimming / diving |
 | `Weather.Enabled` | on | | Local storm (rain, lightning) |
+| `Surf.Enabled` / `Surf.Height` / `Surf.Period` | on / 2.2 / 4.5 s | 0 – 6 / 3 – 20 | Beach waves (client, visual); see [tutorial 5](tutorials/05-materials-and-effects.md#beach-waves) |
 | `Lighting.Enabled` | on | | `false`: the engine leaves `Lighting` alone |
 | `Debug.Panel` | off | | In-game panel outside Studio (for example to test on a phone) |
 

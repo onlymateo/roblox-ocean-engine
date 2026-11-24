@@ -9,7 +9,9 @@ This repository holds the **documentation only**: tutorials, the API and configu
 - **One surface for everything.** Server and clients compute the same waves from the same clock and seed. Buoyancy, swimming and gameplay queries use the same surface the player sees.
 - **Presets and zones.** Calm, Normal, Rough and Storm presets, plus sea-state zones that calm the sea locally, for example a lagoon around an island. Changes cross-fade, so waves never jump.
 - **Floating objects and boats.** Tag a model to make it float. Boats have throttle, rudder and keel, a wake, and a hull that keeps the water out.
+- **Beach waves.** Near a sloping shore, waves turn to face the beach, slow down, grow and break into whitewater that runs up the sand; shallow water turns turquoise.
 - **Underwater.** Depth-dependent fog and colour, refracted light shafts, caustics, Snell's window and suspended particles.
+- **Loading screen.** Keeps the game hidden until scripts, textures, meshes and the ocean are ready.
 - **Weather.** A local storm with overcast sky, rain and lightning, driven by distance.
 - **Quality tiers.** Low, Medium, High and Ultra change rendering cost only; physics is identical on every tier. `Auto` picks a tier from the player's device.
 - **Studio plugin.** Create, configure, preview and remove the ocean without editing engine modules.

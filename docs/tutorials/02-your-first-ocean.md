@@ -18,6 +18,7 @@ Click **Create Ocean**. The plugin:
 | `OceanServer` (Script) | ServerScriptService | Starts the server half: settings and buoyancy |
 | `OceanClientBoot` (LocalScript) | StarterPlayerScripts | Starts the client half: rendering and effects |
 | `OceanSwim`, `OceanBoatDriver` (LocalScripts) | StarterPlayerScripts | Only if you chose them |
+| `OceanLoadingScreen` (LocalScript) | ReplicatedFirst | Hides the game until it is loaded and the ocean is ready (see below) |
 | `Config.Project` (ModuleScript) | ReplicatedStorage.Ocean.Config | Your game's settings: the preset you picked, `Quality = "Auto"` |
 
 The Overview tab now lists every required item as **OK**.
@@ -27,6 +28,15 @@ The Overview tab now lists every required item as **OK**.
 The sea appears around your character. The ocean surface sits at `Y = 0` by default (`General.SeaLevel`).
 
 In Studio, the **Ocean** button at the top-left of the game view opens the live control panel (F2 also works). On phones and tablets the button sits at the top-right. Its sliders change the sea while you play. Wave settings apply for everyone and cross-fade; visual settings apply to you only. Nothing you change in the panel is saved. Copy the values you like into **Configure**.
+
+**Loading screen.** `OceanLoadingScreen` replaces Roblox's default loading screen. It waits for:
+
+1. the game's instances;
+2. the ocean engine to start;
+3. textures and meshes to download (`ContentProvider:PreloadAsync`);
+4. the water material, the first seafloor chunks and the beach-wave map.
+
+Then it fades out. It never keeps a player waiting more than 45 s. To use your own loading screen, delete it.
 
 ## 3. Configure
 
